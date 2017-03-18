@@ -6,6 +6,8 @@ import com.siva.dep.domain.StudentVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+
 /**
  * Created by sivateja on 3/16/17.
  */
@@ -14,8 +16,7 @@ public class StudentServiceImpl implements StudentService {
     @Autowired
     StudentDAO studentDAO;
     StudentVO studentVO = new StudentVO();
-    StudentFamilyDetailsVO studentFamilyDetailsVO = new StudentFamilyDetailsVO();
-    public StudentVO getStudentDetails(int id) {
+    public StudentVO getStudentDetails(int id){
         studentVO.setId(id);
         studentVO.setName(studentDAO.getStudentDetails(id));
         studentVO.setStudentFamilyDetailsVO(studentDAO.getStudentFamilyDetails(id));
