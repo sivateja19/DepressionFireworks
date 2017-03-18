@@ -16,8 +16,7 @@ public class StudentController {
     public StudentServiceImpl studentServiceImpl;
     @RequestMapping("/getStudent")
     public StudentVO getStudent(@RequestParam(value = "id") int id){
-        StudentVO studentVO = studentServiceImpl.getStudentDetails(id);
-        return studentVO;
+        return studentServiceImpl.getStudentDetails(id);
     }
 
 }

@@ -13,7 +13,7 @@ apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 
 jar {
-    baseName = 'gs-rest-service'
+    baseName = 'dep'
     version =  '0.1.0'
 }
 
@@ -26,5 +26,9 @@ targetCompatibility = 1.8
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
     testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:1.2.0")
+    compile("org.springframework.boot:spring-boot-starter-jdbc:1.4.0.RELEASE")
+    compile("postgresql:postgresql:9.1-901-1.jdbc4")
 }

@@ -2,49 +2,34 @@ package com.siva.dep.dao;
 
 import com.siva.dep.domain.StudentFamilyDetailsVO;
 import com.siva.dep.domain.StudentVO;
+import com.siva.dep.mapper.StudentMapper;
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Created by sivateja on 3/16/17.
  */
 
-@Repository("studentDAO")
+@Component
 public class StudentDAO {
-
+    @Autowired
+    StudentMapper studentMapper;
+    StudentFamilyDetailsVO studentFamilyDetailsVO = new StudentFamilyDetailsVO();
     public String getStudentDetails(int id) {
-        String  name;
-        if(id == 10){
-            name = "SIVA";
-            return name;
-        }
-        else if (id == 11){
-            name = "TEJA";
-            return name;
-        }
-        else {
-            name ="SIVATEJA";
-            return name;
-        }
+        String  name = studentMapper.findStudentNameById(id);
+        return name;
     }
 
-    public StudentFamilyDetailsVO getStudentFamilyDetails(int id) {
-        String address;
-        String fatherName;
-        StudentFamilyDetailsVO studentFamilyDetailsVO = new StudentFamilyDetailsVO();
-        if(id == 10){
-            address = "SIVA";
-            fatherName = "INDIA";
-        }
-        else if (id == 11){
-            address = "TEJA";
-            fatherName = "USA";
-        }
-        else {
-            address = "SIVATEJA";
-            fatherName = "UK";
-        }
-        studentFamilyDetailsVO.setAddress(address);
-        studentFamilyDetailsVO.setFatherName(fatherName);
+    public StudentFamilyDetailsVO getStudentFamilyDetails(int id){
+        studentFamilyDetailsVO = studentMapper.findStudentFamilyDetailsById(id);
         return studentFamilyDetailsVO;
     }
 }
