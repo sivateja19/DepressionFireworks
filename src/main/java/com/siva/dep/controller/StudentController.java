@@ -21,7 +21,7 @@ public class StudentController {
     
     @RequestMapping("/hello")
     public String sayHello(){
-    	return "Hello Boy!!!";
+    	return "Hello World!!!";
     }
 
 }
