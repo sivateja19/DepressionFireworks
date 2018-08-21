@@ -18,5 +18,10 @@ public class StudentController {
     public StudentVO getStudent(@RequestParam(value = "id") int id){
         return studentServiceImpl.getStudentDetails(id);
     }
+    
+    @RequestMapping("/hello")
+    public String sayHello(){
+    	return "Hello Boy!!!";
+    }
 
 }
