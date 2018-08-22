@@ -1,11 +1,11 @@
 package com.siva.dep.mapper;
 
-import com.siva.dep.domain.StudentFamilyDetailsVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.stereotype.Component;
+
+import com.siva.dep.domain.StudentFamilyDetailsVO;
 
 
 /**
